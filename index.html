@@ -12,7 +12,6 @@
     --border: #2a2a30;
     --accent: #8a9a7b;
     --accent-bright: #a3b894;
-    --accent-glow: rgba(138, 154, 123, 0.1);
     --warm: #c4a46c;
     --rose: #b07a7a;
     --slate: #7a8a9e;
@@ -34,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* Subtle noise */
   body::before {
     content: '';
     position: fixed;
@@ -49,37 +47,28 @@
 
   /* ── Top Bar ── */
   .topbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
+    position: fixed; top: 0; width: 100%; z-index: 100;
     padding: 0.75rem 1.5rem;
-    background: rgba(26, 26, 30, 0.9);
+    background: rgba(26,26,30,0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; justify-content: space-between; align-items: center;
     font-size: 0.78rem;
   }
-
   .topbar-left { display: flex; align-items: center; gap: 1rem; }
   .topbar-prompt { color: var(--accent); font-weight: 500; }
   .topbar-path { color: var(--muted); }
-
   .topbar-right { display: flex; gap: 2rem; }
-  .topbar-right a { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.04em; transition: color 0.3s; }
+  .topbar-right a { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.04em; }
   .topbar-right a:hover { color: var(--text-bright); }
 
   /* ── Container ── */
   .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* ── Hero / Boot ── */
+  /* ── Hero ── */
   .hero {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex; flex-direction: column; justify-content: center;
     padding-top: 3rem;
   }
 
@@ -92,293 +81,155 @@
     margin-bottom: 2.5rem;
     opacity: 0;
     animation: softFadeIn 0.8s ease 0.5s forwards;
-    white-space: nowrap;
-    overflow-x: auto;
   }
-
-  .name-prefix {
-    color: var(--accent);
-    opacity: 0.5;
-  }
-
+  .name-prefix { color: var(--accent); opacity: 0.5; }
   .name-cursor {
-    display: inline-block;
-    width: 0.55em;
-    height: 0.85em;
-    background: var(--accent);
-    vertical-align: text-bottom;
-    margin-left: 0.15em;
-    animation: blink 1.2s step-end infinite;
-    opacity: 0.5;
+    display: inline-block; width: 0.55em; height: 0.85em;
+    background: var(--accent); vertical-align: text-bottom;
+    margin-left: 0.15em; animation: blink 1.2s step-end infinite; opacity: 0.5;
   }
 
   .boot-log { margin-bottom: 2rem; font-size: 0.75rem; }
-
   .boot-line {
-    opacity: 0;
-    animation: typeIn 0.05s ease forwards;
-    margin-bottom: 0.25rem;
-    display: flex;
-    gap: 0.5rem;
+    opacity: 0; animation: typeIn 0.05s ease forwards;
+    margin-bottom: 0.25rem; display: flex; gap: 0.5rem;
   }
-
   .boot-line:nth-child(1) { animation-delay: 1.2s; }
   .boot-line:nth-child(2) { animation-delay: 1.6s; }
   .boot-line:nth-child(3) { animation-delay: 2.0s; }
   .boot-line:nth-child(4) { animation-delay: 2.4s; }
   .boot-line:nth-child(5) { animation-delay: 2.8s; }
   .boot-line:nth-child(6) { animation-delay: 3.2s; }
-
   .boot-ok { color: var(--accent); }
   .boot-warn { color: var(--warm); }
   .boot-label { color: var(--muted); }
 
   .hero-intro {
     border-left: 1px solid var(--accent);
-    padding-left: 1.5rem;
-    margin-top: 1.5rem;
-    max-width: 600px;
-    opacity: 0;
-    animation: softFadeIn 0.8s ease 3.6s forwards;
+    padding-left: 1.5rem; margin-top: 1.5rem; max-width: 600px;
+    opacity: 0; animation: softFadeIn 0.8s ease 3.6s forwards;
   }
-
   .hero-intro h1 {
     font-family: 'Space Mono', monospace;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-bright);
-    margin-bottom: 0.75rem;
-    line-height: 1.45;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--text-bright); margin-bottom: 0.75rem; line-height: 1.45;
   }
-
-  .hero-intro h1 span { color: var(--accent-bright); }
-
-  .hero-intro p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.75;
-    font-weight: 300;
-  }
+  .hero-intro h1 em { color: var(--accent-bright); font-style: normal; }
+  .hero-intro p { font-size: 0.82rem; color: var(--muted); line-height: 1.75; font-weight: 300; }
 
   .cursor-blink {
-    display: inline-block;
-    width: 0.5em;
-    height: 1em;
-    background: var(--accent);
-    vertical-align: text-bottom;
-    animation: blink 1.2s step-end infinite;
-    margin-left: 2px;
-    opacity: 0.7;
+    display: inline-block; width: 0.5em; height: 1em;
+    background: var(--accent); vertical-align: text-bottom;
+    animation: blink 1.2s step-end infinite; margin-left: 2px; opacity: 0.7;
   }
 
   /* ── Section ── */
   .section { padding: 4.5rem 0; border-top: 1px solid var(--border); }
-
   .section-head {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-    font-size: 0.72rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 2.5rem; font-size: 0.72rem;
   }
-
   .section-head .prompt { color: var(--accent); font-weight: 500; }
   .section-head .cmd { color: var(--text); }
   .section-head .flag { color: var(--warm); }
   .section-head .comment { color: var(--comment); }
 
-  /* ── Project Cards ── */
-  .projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+  /* ── Project Cards (simple stacked) ── */
+  .projects-stack { display: flex; flex-direction: column; gap: 2rem; }
 
-  .project-card {
+  .project {
     border: 1px solid var(--border);
     background: var(--surface);
     border-radius: 2px;
     overflow: hidden;
-    transition: border-color 0.4s, transform 0.3s;
-    cursor: default;
   }
 
-  .project-card:hover { border-color: #3a3a42; transform: translateY(-2px); }
-
-  .project-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 260px;
+  .project-top {
+    padding: 2rem 2rem 1.5rem 2rem;
   }
 
-  .project-visual {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .project-meta-row {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 0.75rem; flex-wrap: wrap;
   }
 
-  .project-visual canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  .project-cat {
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
   }
-
-  .visual-quit {
-    background: linear-gradient(145deg, #1e2b1c, #2a3826, #1e2818);
-    border-right: 1px solid var(--border);
-  }
-
-  .visual-cosmic {
-    background: linear-gradient(145deg, #181828, #222240, #161625);
-    border-right: 1px solid var(--border);
-  }
-
-  .visual-music {
-    background: linear-gradient(145deg, #261e2a, #322438, #221a26);
-    border-right: 1px solid var(--border);
-  }
-
-  .visual-agentra {
-    background: linear-gradient(145deg, #1a2030, #202840, #161c28);
-    border-right: 1px solid var(--border);
-  }
-
-  .visual-overlay {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .visual-overlay .icon {
-    font-size: 3rem;
-    margin-bottom: 0.75rem;
-    line-height: 1;
-  }
-
-  .visual-overlay .type-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.7;
-    color: var(--text);
-  }
-
-  .project-info {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .project-status-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .project-category {
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
   .cat-game { color: var(--accent); }
   .cat-music { color: var(--purple); }
   .cat-infra { color: var(--slate); }
 
-  .project-status-badge {
-    font-size: 0.55rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.15rem 0.45rem;
-    border-radius: 1px;
+  .project-badge {
+    font-size: 0.55rem; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.15rem 0.5rem; border-radius: 1px;
   }
+  .badge-shipped { color: var(--accent-bright); border: 1px solid var(--accent); }
+  .badge-live { color: var(--warm); border: 1px solid rgba(196,164,108,0.35); }
+  .badge-released { color: var(--purple); border: 1px solid rgba(154,122,176,0.35); }
+  .badge-preview { color: var(--slate); border: 1px solid rgba(122,138,158,0.35); }
 
-  .badge-shipped { color: var(--accent-bright); border: 1px solid var(--accent); background: rgba(138,154,123,0.06); }
-  .badge-live { color: var(--warm); border: 1px solid rgba(196,164,108,0.25); background: rgba(196,164,108,0.04); }
-  .badge-released { color: var(--purple); border: 1px solid rgba(154,122,176,0.3); background: rgba(154,122,176,0.04); }
-  .badge-preview { color: var(--slate); border: 1px solid rgba(122,138,158,0.3); background: rgba(122,138,158,0.04); }
-
-  .project-card h3 {
+  .project h3 {
     font-family: 'Space Mono', monospace;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-bright);
-    margin-bottom: 0.6rem;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--text-bright); margin-bottom: 0.6rem;
   }
 
   .project-desc {
-    font-size: 0.82rem;
-    color: var(--text);
-    font-weight: 300;
-    line-height: 1.75;
-    margin-bottom: 1rem;
+    font-size: 0.82rem; color: var(--text);
+    font-weight: 300; line-height: 1.75; margin-bottom: 1rem;
+    max-width: 640px;
   }
 
   .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1.25rem;
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem;
   }
-
   .stack-tag {
-    font-size: 0.58rem;
-    padding: 0.15rem 0.4rem;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    letter-spacing: 0.02em;
+    font-size: 0.58rem; padding: 0.18rem 0.5rem;
+    color: var(--muted); border: 1px solid var(--border); letter-spacing: 0.02em;
   }
 
-  .project-links {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.72rem;
-  }
-
-  .project-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--accent-bright);
+  .project-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.78rem; font-weight: 500; color: var(--accent-bright);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--accent);
     transition: all 0.3s;
   }
+  .project-link:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .project-link + .project-link { margin-left: 0.75rem; }
 
-  .project-links a:hover { color: var(--text-bright); }
-
-  .project-links a .arrow { transition: transform 0.2s; }
-  .project-links a:hover .arrow { transform: translateX(3px); }
-
-  /* ── Music Section (Tracklist) ── */
-  .tracklist {
-    margin-top: 1rem;
+  /* Embed area */
+  .project-embed {
     border-top: 1px solid var(--border);
-    padding-top: 1rem;
+    padding: 1.5rem 2rem;
+    background: rgba(0,0,0,0.15);
   }
 
-  .tracklist-title {
-    font-size: 0.62rem;
-    color: var(--comment);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.6rem;
+  .project-embed iframe {
+    width: 100%;
+    border: none;
+    border-radius: 2px;
   }
 
+  /* Tracklist */
+  .tracklist {
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+  }
+  .tracklist-label {
+    font-size: 0.6rem; color: var(--comment);
+    letter-spacing: 0.06em; margin-bottom: 0.6rem;
+  }
   .track {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.35rem 0;
-    font-size: 0.75rem;
-    border-bottom: 1px solid rgba(42,42,48,0.5);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.3rem 0; font-size: 0.75rem;
+    border-bottom: 1px solid rgba(42,42,48,0.4);
   }
-
   .track:last-child { border: none; }
-
   .track-num { color: var(--muted); min-width: 2rem; font-size: 0.65rem; }
   .track-name { color: var(--text); flex: 1; }
   .track-dur { color: var(--muted); font-size: 0.65rem; }
@@ -387,66 +238,61 @@
   .ambitions-list { display: flex; flex-direction: column; gap: 0.75rem; }
 
   .ambition-item {
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    position: relative;
-    transition: border-color 0.3s;
-    overflow: hidden;
-    border-radius: 2px;
+    padding: 1.5rem; border: 1px solid var(--border);
+    background: var(--surface); position: relative;
+    transition: border-color 0.3s; overflow: hidden; border-radius: 2px;
   }
-
   .ambition-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: var(--progress, 0%);
-    background: var(--accent);
+    content: ''; position: absolute; bottom: 0; left: 0;
+    height: 1px; width: var(--progress, 0%); background: var(--accent);
   }
-
   .ambition-item:hover { border-color: #3a3a42; }
 
-  .ambition-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
-
-  .ambition-item h3 { font-family: 'Space Mono', monospace; font-size: 0.9rem; font-weight: 700; color: var(--text-bright); }
-
-  .ambition-status {
-    font-size: 0.58rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    white-space: nowrap;
-    border-radius: 1px;
+  .ambition-top {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; margin-bottom: 0.5rem;
   }
-
-  .status-active { color: var(--accent-bright); border: 1px solid var(--accent); background: rgba(138,154,123,0.06); }
-  .status-planning { color: var(--warm); border: 1px solid rgba(196,164,108,0.25); background: rgba(196,164,108,0.04); }
-  .status-draft { color: var(--slate); border: 1px solid rgba(122,138,158,0.25); background: rgba(122,138,158,0.04); }
+  .ambition-item h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem; font-weight: 700; color: var(--text-bright);
+  }
+  .ambition-status {
+    font-size: 0.58rem; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.2rem 0.5rem;
+    white-space: nowrap; border-radius: 1px;
+  }
+  .status-active { color: var(--accent-bright); border: 1px solid var(--accent); }
+  .status-planning { color: var(--warm); border: 1px solid rgba(196,164,108,0.25); }
+  .status-draft { color: var(--slate); border: 1px solid rgba(122,138,158,0.25); }
   .status-queued { color: var(--muted); border: 1px solid var(--border); }
 
-  .ambition-item p { font-size: 0.78rem; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 0.6rem; }
-  .ambition-progress-label { font-size: 0.62rem; color: var(--comment); letter-spacing: 0.02em; }
+  .ambition-item p {
+    font-size: 0.78rem; color: var(--muted);
+    font-weight: 300; line-height: 1.65; margin-bottom: 0.6rem;
+  }
+  .ambition-progress-label { font-size: 0.62rem; color: var(--comment); }
 
   /* ── About ── */
   .about-block { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-
-  .about-text p { font-size: 0.82rem; color: var(--text); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
-  .about-text p .hl { color: var(--accent-bright); }
+  .about-text p {
+    font-size: 0.82rem; color: var(--text);
+    line-height: 1.8; font-weight: 300; margin-bottom: 1rem;
+  }
+  .about-text .hl { color: var(--accent-bright); }
 
   .about-stats {
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    background: var(--surface);
-    font-size: 0.72rem;
-    height: fit-content;
-    border-radius: 2px;
+    border: 1px solid var(--border); padding: 1.5rem;
+    background: var(--surface); font-size: 0.72rem;
+    height: fit-content; border-radius: 2px;
   }
-
-  .about-stats .stat-title { color: var(--comment); font-size: 0.62rem; margin-bottom: 1rem; letter-spacing: 0.04em; }
-
-  .stat-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+  .about-stats .stat-title {
+    color: var(--comment); font-size: 0.62rem;
+    margin-bottom: 1rem; letter-spacing: 0.04em;
+  }
+  .stat-row {
+    display: flex; justify-content: space-between;
+    padding: 0.4rem 0; border-bottom: 1px solid var(--border);
+  }
   .stat-row:last-child { border: none; }
   .stat-key { color: var(--muted); }
   .stat-val { color: var(--text); }
@@ -454,45 +300,28 @@
 
   /* ── Contact ── */
   .contact-section { padding: 4rem 0; border-top: 1px solid var(--border); }
-
   .contact-box {
-    border: 1px solid var(--border);
-    padding: 2rem;
-    background: var(--surface);
-    max-width: 480px;
-    border-radius: 2px;
+    border: 1px solid var(--border); padding: 2rem;
+    background: var(--surface); max-width: 480px; border-radius: 2px;
   }
-
-  .contact-box h3 { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--text-bright); margin-bottom: 0.5rem; }
-  .contact-box p { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.25rem; font-weight: 300; line-height: 1.7; }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+  .contact-box h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem; color: var(--text-bright); margin-bottom: 0.5rem;
   }
-
-  .contact-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.78rem;
+  .contact-box p {
+    font-size: 0.75rem; color: var(--muted);
+    margin-bottom: 1.25rem; font-weight: 300; line-height: 1.7;
   }
-
+  .contact-links { display: flex; flex-direction: column; gap: 0.6rem; }
+  .contact-row { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; }
   .contact-row .label { color: var(--muted); min-width: 6rem; }
-  .contact-row a { color: var(--accent-bright); }
 
   /* ── Footer ── */
   footer {
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.65rem;
-    color: var(--muted);
+    padding: 2.5rem 0; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.65rem; color: var(--muted);
   }
-
   footer .links { display: flex; gap: 1.25rem; }
   footer .links a { color: var(--muted); font-size: 0.65rem; }
   footer .links a:hover { color: var(--accent-bright); }
@@ -511,9 +340,11 @@
     .topbar { padding: 0.6rem 1rem; }
     .topbar-right { gap: 1rem; }
     .name-banner { font-size: 1.1rem; }
-    .project-header { grid-template-columns: 1fr; }
-    .project-visual { min-height: 160px; }
+    .project-top { padding: 1.5rem; }
+    .project-embed { padding: 1rem; }
+    .tracklist { padding: 1rem; }
     .about-block { grid-template-columns: 1fr; }
+    .project-link + .project-link { margin-left: 0; margin-top: 0.5rem; }
   }
 </style>
 </head>
@@ -538,13 +369,12 @@
   <!-- Hero / Boot -->
   <section class="hero">
     <div class="name-banner">
-      <span class="name-prefix">&gt; </span>JONATHAN KLIMOSKI
-      <span class="name-cursor"></span>
+      <span class="name-prefix">&gt; </span>JONATHAN KLIMOSKI<span class="name-cursor"></span>
     </div>
 
     <div class="boot-log">
       <div class="boot-line"><span class="boot-ok">[  ok  ]</span> <span class="boot-label">loading identity...</span></div>
-      <div class="boot-line"><span class="boot-ok">[  ok  ]</span> <span class="boot-label">mounting /projects /music /games /web3</span></div>
+      <div class="boot-line"><span class="boot-ok">[  ok  ]</span> <span class="boot-label">mounting /security /projects /music /web3</span></div>
       <div class="boot-line"><span class="boot-ok">[  ok  ]</span> <span class="boot-label">syncing creative daemon</span></div>
       <div class="boot-line"><span class="boot-warn">[ warn ]</span> <span class="boot-label">ambition levels exceed safe thresholds</span></div>
       <div class="boot-line"><span class="boot-ok">[  ok  ]</span> <span class="boot-label">portfolio ready — 4 projects indexed</span></div>
@@ -552,8 +382,8 @@
     </div>
 
     <div class="hero-intro">
-      <h1>Games, music, and <span>infrastructure for the machine economy</span>.<span class="cursor-blink"></span></h1>
-      <p>I make things across mediums — game dev, music production, web3 infrastructure, and the experiments in between. This is the portfolio. No fluff, just the output.</p>
+      <h1>Cybersecurity, games, music, and <em>infrastructure for the machine economy</em>.<span class="cursor-blink"></span></h1>
+      <p>Security professional by trade, builder by compulsion. Game dev, music production, web3 infrastructure, and everything in between. This is the portfolio.</p>
     </div>
   </section>
 
@@ -567,137 +397,101 @@
       <span class="comment"># shipped work</span>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-stack">
 
-      <!-- Quit Quest -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-visual visual-quit">
-            <canvas id="canvas-quit"></canvas>
-            <div class="visual-overlay">
-              <div class="icon">🏰</div>
-              <div class="type-label">game / rpg</div>
-            </div>
+      <!-- ═══ QUIT QUEST ═══ -->
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat cat-game">game dev</span>
+            <span class="project-badge badge-shipped">shipped</span>
           </div>
-          <div class="project-info">
-            <div class="project-status-row">
-              <span class="project-category cat-game">game dev</span>
-              <span class="project-status-badge badge-shipped">shipped</span>
-            </div>
-            <h3>Quit Quest</h3>
-            <p class="project-desc">A stop-smoking RPG. Create a hero, embark on quests, and battle your way to a smoke-free life. Gamifies the hardest habit to break with progression, storytelling, and real behavior change mechanics.</p>
-            <div class="project-stack">
-              <span class="stack-tag">RPG</span>
-              <span class="stack-tag">health tech</span>
-              <span class="stack-tag">behavior change</span>
-              <span class="stack-tag">web</span>
-            </div>
-            <div class="project-links">
-              <a href="https://quit-quest-game.vercel.app" target="_blank">play now <span class="arrow">→</span></a>
-            </div>
+          <h3>Quit Quest</h3>
+          <p class="project-desc">A stop-smoking RPG. Create a hero, embark on quests, and battle your way to a smoke-free life. Gamifies the hardest habit to break with progression, storytelling, and real behavior change mechanics.</p>
+          <div class="project-stack">
+            <span class="stack-tag">RPG</span>
+            <span class="stack-tag">health tech</span>
+            <span class="stack-tag">behavior change</span>
+            <span class="stack-tag">web</span>
           </div>
+          <a class="project-link" href="https://quit-quest-game.vercel.app" target="_blank">Play Quit Quest →</a>
+        </div>
+        <div class="project-embed">
+          <iframe src="https://quit-quest-game.vercel.app" height="500" loading="lazy" allow="fullscreen" title="Quit Quest"></iframe>
         </div>
       </div>
 
-      <!-- Cosmic Racer -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-visual visual-cosmic">
-            <canvas id="canvas-cosmic"></canvas>
-            <div class="visual-overlay">
-              <div class="icon">🚀</div>
-              <div class="type-label">game / shooter</div>
-            </div>
+      <!-- ═══ COSMIC RACER ═══ -->
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat cat-game">game dev</span>
+            <span class="project-badge badge-live">live</span>
           </div>
-          <div class="project-info">
-            <div class="project-status-row">
-              <span class="project-category cat-game">game dev</span>
-              <span class="project-status-badge badge-live">live</span>
-            </div>
-            <h3>Cosmic Racer</h3>
-            <p class="project-desc">A space shooter built for speed and chaos. Choose your starship, navigate through waves of enemies, and unleash lasers and rockets. WASD to fly, Space to boost, X to fire, Z to launch rockets.</p>
-            <div class="project-stack">
-              <span class="stack-tag">space shooter</span>
-              <span class="stack-tag">arcade</span>
-              <span class="stack-tag">action</span>
-              <span class="stack-tag">web</span>
-            </div>
-            <div class="project-links">
-              <a href="https://8thsea.github.io/cosmicracer" target="_blank">play now <span class="arrow">→</span></a>
-            </div>
+          <h3>Cosmic Racer</h3>
+          <p class="project-desc">A space shooter built for speed and chaos. Choose your starship, navigate through waves of enemies, and unleash lasers and rockets. WASD to fly, Space to boost, X to fire, Z to launch rockets.</p>
+          <div class="project-stack">
+            <span class="stack-tag">space shooter</span>
+            <span class="stack-tag">arcade</span>
+            <span class="stack-tag">action</span>
+            <span class="stack-tag">web</span>
           </div>
+          <a class="project-link" href="https://8thsea.github.io/cosmicracer" target="_blank">Play Cosmic Racer →</a>
+        </div>
+        <div class="project-embed">
+          <iframe src="https://8thsea.github.io/cosmicracer" height="500" loading="lazy" allow="fullscreen" title="Cosmic Racer"></iframe>
         </div>
       </div>
 
-      <!-- Loudnumb -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-visual visual-music">
-            <canvas id="canvas-music"></canvas>
-            <div class="visual-overlay">
-              <div class="icon">🎧</div>
-              <div class="type-label">music</div>
-            </div>
+      <!-- ═══ LOUDNUMB ═══ -->
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat cat-music">music</span>
+            <span class="project-badge badge-released">released</span>
           </div>
-          <div class="project-info">
-            <div class="project-status-row">
-              <span class="project-category cat-music">music</span>
-              <span class="project-status-badge badge-released">released</span>
-            </div>
-            <h3>Loudnumb</h3>
-            <p class="project-desc">My music project. The debut album <em>Hyperborea</em> dropped in 2017 — seven tracks exploring atmosphere, texture, and the space between noise and silence. Followed by the single <em>Floor of the Ocean</em> in 2021.</p>
-            <div class="project-stack">
-              <span class="stack-tag">production</span>
-              <span class="stack-tag">electronic</span>
-              <span class="stack-tag">ambient</span>
-            </div>
-            <div class="project-links">
-              <a href="https://open.spotify.com/artist/loudnumb" target="_blank">spotify <span class="arrow">→</span></a>
-              <a href="https://music.apple.com/us/artist/loudnumb/1195388052" target="_blank">apple music <span class="arrow">→</span></a>
-            </div>
-
-            <div class="tracklist">
-              <div class="tracklist-title">/* hyperborea — tracklist */</div>
-              <div class="track"><span class="track-num">01</span><span class="track-name">Shores</span><span class="track-dur">1:30</span></div>
-              <div class="track"><span class="track-num">02</span><span class="track-name">Hyperborea</span><span class="track-dur">4:31</span></div>
-              <div class="track"><span class="track-num">03</span><span class="track-name">Mouthfire</span><span class="track-dur">5:05</span></div>
-              <div class="track"><span class="track-num">04</span><span class="track-name">From Frost</span><span class="track-dur">4:32</span></div>
-              <div class="track"><span class="track-num">05</span><span class="track-name">Dream Trees</span><span class="track-dur">3:39</span></div>
-              <div class="track"><span class="track-num">06</span><span class="track-name">Shadeface</span><span class="track-dur">4:45</span></div>
-              <div class="track"><span class="track-num">07</span><span class="track-name">Landscape</span><span class="track-dur">6:45</span></div>
-            </div>
+          <h3>Loudnumb</h3>
+          <p class="project-desc">My music project. The debut album <em>Hyperborea</em> dropped January 2017 — seven tracks exploring atmosphere, texture, and the space between noise and silence. Followed by the single <em>Floor of the Ocean</em> in 2021.</p>
+          <div class="project-stack">
+            <span class="stack-tag">production</span>
+            <span class="stack-tag">electronic</span>
+            <span class="stack-tag">ambient</span>
           </div>
+          <a class="project-link" href="https://open.spotify.com/artist/loudnumb" target="_blank">Listen on Spotify →</a>
+          <a class="project-link" href="https://music.apple.com/us/artist/loudnumb/1195388052" target="_blank">Apple Music →</a>
+        </div>
+        <div class="project-embed">
+          <iframe style="border-radius:4px" src="https://open.spotify.com/embed/artist/65u0LUVla0b8rJJ7EJyVaV?utm_source=generator&theme=0" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Loudnumb on Spotify"></iframe>
+        </div>
+        <div class="tracklist">
+          <div class="tracklist-label">/* hyperborea — tracklist */</div>
+          <div class="track"><span class="track-num">01</span><span class="track-name">Shores</span><span class="track-dur">1:30</span></div>
+          <div class="track"><span class="track-num">02</span><span class="track-name">Hyperborea</span><span class="track-dur">4:31</span></div>
+          <div class="track"><span class="track-num">03</span><span class="track-name">Mouthfire</span><span class="track-dur">5:05</span></div>
+          <div class="track"><span class="track-num">04</span><span class="track-name">From Frost</span><span class="track-dur">4:32</span></div>
+          <div class="track"><span class="track-num">05</span><span class="track-name">Dream Trees</span><span class="track-dur">3:39</span></div>
+          <div class="track"><span class="track-num">06</span><span class="track-name">Shadeface</span><span class="track-dur">4:45</span></div>
+          <div class="track"><span class="track-num">07</span><span class="track-name">Landscape</span><span class="track-dur">6:45</span></div>
         </div>
       </div>
 
-      <!-- Agentra -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-visual visual-agentra">
-            <canvas id="canvas-agentra"></canvas>
-            <div class="visual-overlay">
-              <div class="icon">🔗</div>
-              <div class="type-label">web3 / ai</div>
-            </div>
+      <!-- ═══ AGENTRA ═══ -->
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat cat-infra">infrastructure</span>
+            <span class="project-badge badge-preview">dev preview</span>
           </div>
-          <div class="project-info">
-            <div class="project-status-row">
-              <span class="project-category cat-infra">infrastructure</span>
-              <span class="project-status-badge badge-preview">dev preview</span>
-            </div>
-            <h3>Agentra™</h3>
-            <p class="project-desc">Wallets and identity for autonomous AI agents. Agentra gives agents their own wallets, verifiable identities, and trust scores — so they can hold funds, prove who they are, and transact safely in the agent economy. Patent pending.</p>
-            <div class="project-stack">
-              <span class="stack-tag">rust / axum</span>
-              <span class="stack-tag">base L2</span>
-              <span class="stack-tag">ERC-4337</span>
-              <span class="stack-tag">x402</span>
-              <span class="stack-tag">ZK proofs</span>
-            </div>
-            <div class="project-links">
-              <a href="https://agentrapay.ai" target="_blank">agentrapay.ai <span class="arrow">→</span></a>
-            </div>
+          <h3>Agentra™</h3>
+          <p class="project-desc">Wallets and identity for autonomous AI agents. Agentra gives agents their own wallets, verifiable identities, and trust scores — so they can hold funds, prove who they are, and transact safely in the agent economy. Patent pending.</p>
+          <div class="project-stack">
+            <span class="stack-tag">rust / axum</span>
+            <span class="stack-tag">base L2</span>
+            <span class="stack-tag">ERC-4337</span>
+            <span class="stack-tag">x402</span>
+            <span class="stack-tag">ZK proofs</span>
           </div>
+          <a class="project-link" href="https://agentrapay.ai" target="_blank">agentrapay.ai →</a>
         </div>
       </div>
 
@@ -762,20 +556,21 @@
 
     <div class="about-block">
       <div class="about-text reveal">
-        <p>I make games and music — and lately, <span class="hl">infrastructure for the agent economy</span>. From gamifying health challenges to building space shooters to producing atmospheric electronic music to designing <span class="hl">AI agent payment rails</span>, the thread that connects everything is obsessive tinkering.</p>
-        <p>I believe the best work comes from crossing disciplines. Game design sharpens my ear for pacing in music. Music production teaches me about texture in visuals. Everything feeds everything.</p>
+        <p>By day I run <span class="hl">ProTech DataSec</span> — cybersecurity consulting and data protection. By night (and most weekends) I make games, produce music, and build <span class="hl">infrastructure for the agent economy</span>.</p>
+        <p>From gamifying health challenges to building space shooters to producing atmospheric electronic music to designing AI agent payment rails, the thread that connects everything is obsessive tinkering and a refusal to stay in one lane.</p>
         <p>This portfolio is the proof of work. More coming.</p>
       </div>
 
       <div class="about-stats reveal">
         <div class="stat-title">/* stats */</div>
         <div class="stat-row"><span class="stat-key">status</span><span class="stat-val accent">online</span></div>
+        <div class="stat-row"><span class="stat-key">day_job</span><span class="stat-val">ProTech DataSec</span></div>
+        <div class="stat-row"><span class="stat-key">focus</span><span class="stat-val">cybersecurity</span></div>
         <div class="stat-row"><span class="stat-key">games.shipped</span><span class="stat-val">2</span></div>
         <div class="stat-row"><span class="stat-key">albums.released</span><span class="stat-val">1</span></div>
-        <div class="stat-row"><span class="stat-key">singles.released</span><span class="stat-val">1</span></div>
         <div class="stat-row"><span class="stat-key">patents.pending</span><span class="stat-val">4</span></div>
-        <div class="stat-row"><span class="stat-key">mediums</span><span class="stat-val">games, music, web3</span></div>
-        <div class="stat-row"><span class="stat-key">open_to</span><span class="stat-val accent">collabs & chaos</span></div>
+        <div class="stat-row"><span class="stat-key">mediums</span><span class="stat-val">security, games, music, web3</span></div>
+        <div class="stat-row"><span class="stat-key">open_to</span><span class="stat-val accent">collabs &amp; chaos</span></div>
       </div>
     </div>
   </section>
@@ -790,12 +585,12 @@
 
     <div class="contact-box reveal">
       <h3>get in touch</h3>
-      <p>For collabs, questions, or just to say what's up. I'm around.</p>
+      <p>For cybersecurity inquiries, collabs, or just to say what's up.</p>
       <div class="contact-links">
+        <div class="contact-row"><span class="label">security</span><a href="#">ProTech DataSec</a></div>
         <div class="contact-row"><span class="label">spotify</span><a href="https://open.spotify.com/artist/loudnumb" target="_blank">Loudnumb</a></div>
-        <div class="contact-row"><span class="label">github</span><a href="#">github.com/you</a></div>
-        <div class="contact-row"><span class="label">email</span><a href="#"><span class="__cf_email__" data-cfemail="18707d7474775861776d367b7775">[email&#160;protected]</span></a></div>
-        <div class="contact-row"><span class="label">twitter</span><a href="#">@you</a></div>
+        <div class="contact-row"><span class="label">github</span><a href="https://github.com/8thsea" target="_blank">github.com/8thsea</a></div>
+        <div class="contact-row"><span class="label">email</span><a href="mailto:agentrapay@gmail.com">agentrapay@gmail.com</a></div>
       </div>
     </div>
   </section>
@@ -804,194 +599,17 @@
   <footer>
     <span>Jonathan Klimoski</span>
     <div class="links">
-      <a href="#">github</a>
-      <a href="#">twitter</a>
-      <a href="#">spotify</a>
+      <a href="https://github.com/8thsea" target="_blank">github</a>
+      <a href="https://open.spotify.com/artist/loudnumb" target="_blank">spotify</a>
+      <a href="https://agentrapay.ai" target="_blank">agentra</a>
     </div>
-    <span>&copy; 2026</span>
+    <span>&copy; 2026 ProTech Data Security Services LLC</span>
   </footer>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── Ambient Canvas Animations ──
-
-  // Quit Quest: floating particles that fade (like smoke dissipating)
-  (function() {
-    const c = document.getElementById('canvas-quit');
-    if (!c) return;
-    const ctx = c.getContext('2d');
-    let particles = [];
-
-    function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
-    resize();
-    window.addEventListener('resize', resize);
-
-    function spawn() {
-      particles.push({
-        x: Math.random() * c.width,
-        y: c.height + 5,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: -(0.3 + Math.random() * 0.5),
-        life: 1,
-        size: 1 + Math.random() * 2
-      });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, c.width, c.height);
-      if (Math.random() < 0.15) spawn();
-      particles = particles.filter(p => p.life > 0);
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.life -= 0.005;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(138, 154, 123, ${p.life * 0.3})`;
-        ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  // Cosmic Racer: stars flying past
-  (function() {
-    const c = document.getElementById('canvas-cosmic');
-    if (!c) return;
-    const ctx = c.getContext('2d');
-    let stars = [];
-
-    function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
-    resize();
-    window.addEventListener('resize', resize);
-
-    for (let i = 0; i < 80; i++) {
-      stars.push({
-        x: Math.random() * 1000,
-        y: Math.random() * 500,
-        speed: 0.2 + Math.random() * 1,
-        size: Math.random() * 1.5
-      });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, c.width, c.height);
-      stars.forEach(s => {
-        s.x -= s.speed;
-        if (s.x < 0) { s.x = c.width; s.y = Math.random() * c.height; }
-        const alpha = 0.15 + (s.speed / 1.2) * 0.35;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(122, 138, 158, ${alpha})`;
-        ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  // Loudnumb: waveform visualization
-  (function() {
-    const c = document.getElementById('canvas-music');
-    if (!c) return;
-    const ctx = c.getContext('2d');
-    let t = 0;
-
-    function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
-    resize();
-    window.addEventListener('resize', resize);
-
-    function draw() {
-      ctx.clearRect(0, 0, c.width, c.height);
-      const mid = c.height / 2;
-      const bars = 40;
-      const gap = c.width / bars;
-
-      for (let i = 0; i < bars; i++) {
-        const h = Math.sin(t * 0.02 + i * 0.3) * 15 + Math.sin(t * 0.01 + i * 0.15) * 10;
-        const absH = Math.abs(h) + 2;
-        ctx.fillStyle = `rgba(154, 122, 176, ${0.12 + Math.abs(h) / 60})`;
-        ctx.fillRect(i * gap + gap * 0.2, mid - absH, gap * 0.6, absH * 2);
-      }
-      t++;
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  // Agentra: network nodes / blockchain graph
-  (function() {
-    const c = document.getElementById('canvas-agentra');
-    if (!c) return;
-    const ctx = c.getContext('2d');
-    let nodes = [];
-
-    function resize() {
-      c.width = c.offsetWidth;
-      c.height = c.offsetHeight;
-      if (nodes.length === 0) init();
-    }
-
-    function init() {
-      nodes = [];
-      for (let i = 0; i < 18; i++) {
-        nodes.push({
-          x: Math.random() * c.width,
-          y: Math.random() * c.height,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          size: 1.5 + Math.random() * 2,
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-    }
-
-    resize();
-    window.addEventListener('resize', resize);
-
-    function draw() {
-      ctx.clearRect(0, 0, c.width, c.height);
-
-      // Draw connections
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(122, 138, 158, ${(1 - dist / 120) * 0.15})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw nodes
-      nodes.forEach(n => {
-        n.x += n.vx;
-        n.y += n.vy;
-        n.pulse += 0.02;
-        if (n.x < 0 || n.x > c.width) n.vx *= -1;
-        if (n.y < 0 || n.y > c.height) n.vy *= -1;
-
-        const glow = 0.2 + Math.sin(n.pulse) * 0.1;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(122, 138, 158, ${glow})`;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  // ── Scroll Reveal ──
+<script>
+  // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -999,10 +617,17 @@
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.05 });
 
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // ── Smooth Scroll ──
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
-    
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
